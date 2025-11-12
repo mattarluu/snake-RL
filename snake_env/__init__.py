@@ -1,4 +1,5 @@
 from gymnasium.envs.registration import register
+import numpy as np
 
 ENTRY_POINT = "snake_env.env:SnakeEnv"
 
@@ -28,5 +29,12 @@ register(
     id="Snake-v2",
     entry_point="snake_env.env:SnakeEnv",
     max_episode_steps=500,
+    reward_threshold=30,
+)
+
+register(
+    id="Snake-Test-v0",
+    entry_point="snake_env.env:SnakeEnv",
+    max_episode_steps=200000,
     reward_threshold=30,
 )
