@@ -8,7 +8,6 @@ from gymnasium.wrappers import TimeLimit
 import numpy as np
 
 class DetailedCallback(BaseCallback):
-    """Callback mejorado con más estadísticas y tracking de fases"""
     def __init__(self, save_path, check_freq=1000, verbose=1):
         super(DetailedCallback, self).__init__(verbose)
         self.save_path = save_path
