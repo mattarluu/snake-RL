@@ -86,7 +86,7 @@ def train_curriculum_phase(model, env_id, phase_config, callbacks, phase_name):
         total_timesteps_phase += timesteps
         env.close()
         
-        print(f"\n✅ {sub_phase_name} completada")
+        print(f"\n{sub_phase_name} completada")
         print(f"   Timesteps acumulados en fase: {total_timesteps_phase:,}\n")
 
 
@@ -134,7 +134,7 @@ CURRICULUM_HARD = [
     (5000, 600000),   
 ]
 
-print(f"\n📋 PLAN DE ENTRENAMIENTO:")
+print(f"\nPLAN DE ENTRENAMIENTO:")
 print(f"\nFase 1 - EASY (Radio=5):")
 print(f"  Total: {sum(t for _, t in CURRICULUM_EASY):,} timesteps")
 for i, (steps, ts) in enumerate(CURRICULUM_EASY, 1):

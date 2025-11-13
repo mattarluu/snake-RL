@@ -14,7 +14,8 @@ def evaluate_model(model_path, env_id, num_episodes=20, render=True):
     
     model = PPO.load(model_path)
     render_mode = "human" if render else None
-    env = gym.make(env_id, render_mode=render_mode)
+    env = gym.make(env_id, render_mode=render_mode, render_fps=100)
+    
     
     scores = []
     rewards = []
@@ -125,7 +126,7 @@ def evaluate_model(model_path, env_id, num_episodes=20, render=True):
     else:
         print("  Buen rendimiento general")
         if np.mean(scores) >= 20:
-            print("  🏆 ¡Excelente! El agente es muy competente")
+            print("¡Excelente! El agente es muy competente")
     
     print("=" * 70 + "\n")
     
@@ -145,7 +146,7 @@ if __name__ == "__main__":
     print("EVALUACIÓN COMPLETA - VERSIÓN 3")
     
     #evaluar mejor modelo
-    if os.path.exists("models_v3/snake_v3_final.zip"):
+    if os.path.exists("models_v3/best_model_v3.zip"):
         print("\n--- Test en todas las dificultades (sin render) ---")
         for env_id, name in [
             ("Snake-Test-v0", "Extremo")
