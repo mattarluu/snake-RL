@@ -99,7 +99,7 @@ def evaluate_model(model_path, env_id, num_episodes=20, render=True):
     elif score_variance < 0.5:
         consistency = "BUENA"
     elif score_variance < 0.8:
-        consistency = "🟠 REGULAR"
+        consistency = "REGULAR"
     else:
         consistency = "POBRE (muy variable)"
     print(f"  • Coef. variación: {score_variance:.2f} - {consistency}")
@@ -145,7 +145,7 @@ if __name__ == "__main__":
     print("EVALUACIÓN COMPLETA - VERSIÓN 3")
     
     #evaluar mejor modelo
-    if os.path.exists("models_v3/best_model_v3.zip"):
+    if os.path.exists("models_v3/snake_v3_final.zip"):
         print("\n--- Test en todas las dificultades (sin render) ---")
         for env_id, name in [
             ("Snake-Test-v0", "Extremo")
@@ -153,13 +153,13 @@ if __name__ == "__main__":
             print(f"\n{'>'*70}")
             print(f"Dificultad: {name}")
             print(f"{'>'*70}")
-            evaluate_model("models_v3/best_model_v3.zip", env_id, num_episodes=20, render=False)
+            evaluate_model("models_v3/snake_v3_final.zip", env_id, num_episodes=20, render=False)
         
         #visual
         print("\n" + "="*70)
         print("VISUALIZACIÓN EN ENTORNO DIFÍCIL (5 episodios)")
         print("="*70)
         input("\nPresiona ENTER para comenzar visualización...")
-        evaluate_model("models_v3/best_model_v3.zip", "Snake-Test-v0", 
+        evaluate_model("models_v3/snake_v3_final.zip", "Snake-Test-v0", 
                       num_episodes=5, render=True)
     
